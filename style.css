@@ -1,0 +1,354 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Login Page Styles */
+.login-page {
+    background: linear-gradient(135deg, #89CFF0 0%, #E6E6FA 50%, #fecfef 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.miffy-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.miffy {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    animation: walkAcross 15s linear infinite;
+    top: 70%;
+}
+
+@keyframes walkAcross {
+    0% {
+        left: -100px;
+        transform: scaleX(1);
+    }
+    50% {
+        left: calc(50% - 40px);
+    }
+    100% {
+        left: calc(100% + 100px);
+        transform: scaleX(1);
+    }
+}
+
+.login-container {
+    z-index: 2;
+    position: relative;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 350px;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.heart-lock {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.login-box h2 {
+    color: #d63384;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #f8d7da;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.login-box input:focus {
+    outline: none;
+    border-color: #fdff99;
+    box-shadow: 0 0 10px rgba(214, 51, 132, 0.2);
+}
+
+.login-box button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #d63384, #f8d7da);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(214, 51, 132, 0.3);
+}
+
+.error-message {
+    color: #dc3545;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.error-message.show {
+    opacity: 1;
+}
+
+/* Main Page Styles */
+.main-page {
+    background: linear-gradient(135deg, #ffeef8 0%, #fff5f5 100%);
+    min-height: 100vh;
+}
+
+.celebration-header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: white;
+    margin-bottom: 40px;
+}
+
+.celebration-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.celebration-gif {
+    display: flex;
+    justify-content: center;
+}
+
+.celebration-image {
+    max-width: 300px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.memories-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.memories-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #d63384;
+    margin-bottom: 50px;
+}
+
+.months-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.month-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.month-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.month-card h3 {
+    color: #d63384;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.photo-container {
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.month-photo {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.month-photo:hover {
+    transform: scale(1.05);
+}
+
+.month-caption {
+    color: #666;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* First Date Section */
+.first-date-section {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    border-radius: 30px;
+    padding: 50px;
+    margin: 60px 0;
+    text-align: center;
+    color: white;
+}
+
+.first-date-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.first-date-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px;
+    color: #333;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.first-date-card h3 {
+    color: #d63384;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.first-date-photo {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.first-date-message {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: left;
+}
+
+.love-footer {
+    text-align: center;
+    padding: 40px;
+    background: #d63384;
+    color: white;
+    font-size: 1.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-box {
+        margin: 20px;
+        padding: 30px;
+        min-width: auto;
+    }
+    
+    .celebration-header h1 {
+        font-size: 2rem;
+    }
+    
+    .memories-title {
+        font-size: 1.5rem;
+    }
+    
+    .months-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .first-date-section {
+        padding: 30px 20px;
+        margin: 40px 0;
+    }
+    
+    .first-date-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .first-date-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .miffy {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .celebration-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .celebration-image {
+        max-width: 250px;
+    }
+    
+    .month-photo, .first-date-photo {
+        height: 200px;
+    }
+}
